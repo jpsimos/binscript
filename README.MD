@@ -19,12 +19,14 @@ Binscript can be ran without ever packing code into it. In that case, it exits w
 
 
 [binscript-packer]
+
 Does the insertion and encryption of the user's program as specified in the arguments along with the path to the binscript executable.
 After the packed binscript is created, it can be considered a replacement for the original user's program.
 Packing already packed executables is not supported.
 
 
 [disclaimer]
+
 Binscript is not intended to be used to conceal or otherwise subvert malware from detection. On its own, binscript
 is harmless and leaves no mess behind on the system it is executed on. I am not responsible for misuse of this tool.
 
