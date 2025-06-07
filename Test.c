@@ -18,6 +18,7 @@ int main(int argc, char* argv[])
 	const size_t testDataLength = strlen(testData);
 	const size_t testDataKeyLength = strlen(testDataKey);
 	const uint32_t testDataChecksum = CalculateCrc32(testData, testDataLength, 0xEDB88320U);
+	char testDataCopy[100];
 	char encryptedTestData[100];
 	char decryptedTestData[100];
 	R4CKey encryptoKey;
@@ -32,7 +33,8 @@ int main(int argc, char* argv[])
 	R4CDeriveKey(&encryptoKey, testData, testDataKeyLength);
 	R4CDeriveKey(&otherEncryptoKey, testData, testDataKeyLength);
 	
-	R4CCrypt(&encryptoKey, testData, testDataLength, encryptedTestData);
+	memcpy(testDataCopy, testData, strlen(testData));
+	R4CCrypt(&encryptoKey, testDataCopy, testDataLength, encryptedTestData);
 	R4CCrypt(&otherEncryptoKey, encryptedTestData, testDataLength, decryptedTestData);
 	
 	if(memcmp(testData, decryptedTestData, testDataLength))
