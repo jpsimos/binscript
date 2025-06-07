@@ -1,3 +1,9 @@
+/*
+	Test.c
+	Simple unit test program for binscript crypto components.
+	Author Jacob A Psimos
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
